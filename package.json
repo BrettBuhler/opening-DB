@@ -1,0 +1,19 @@
+{
+  "name": "opening-db",
+  "version": "1.0.0",
+  "description": "Chess Opening Project Back-End",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrettBuhler/opening-DB.git"
+  },
+  "author": "Brett Buhler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrettBuhler/opening-DB/issues"
+  },
+  "homepage": "https://github.com/BrettBuhler/opening-DB#readme"
+}
