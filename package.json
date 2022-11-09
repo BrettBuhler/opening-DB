@@ -4,7 +4,9 @@
   "description": "Chess Opening Project Back-End",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,13 @@
   "bugs": {
     "url": "https://github.com/BrettBuhler/opening-DB/issues"
   },
-  "homepage": "https://github.com/BrettBuhler/opening-DB#readme"
+  "homepage": "https://github.com/BrettBuhler/opening-DB#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.2"
+  }
 }
