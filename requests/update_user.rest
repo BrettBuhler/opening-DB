@@ -1,0 +1,10 @@
+PUT http://localhost:3001/api/users/Brett HTTP/1.1
+content-type: application/json
+
+{
+    "name": "New Opening",
+    "relations": {
+        "fen1": ["fen2"],
+        "fen2": ["fen3"]
+    }
+}

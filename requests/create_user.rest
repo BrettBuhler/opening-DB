@@ -4,7 +4,9 @@ content-type: application/json
 {
     "openings": {
             "Petrov": {
-                "a1": "a2"
+                "fen1": ["fen2", "fen3"],
+                "fen2": ["fen4"],
+                "fen3": ["fen5"]
             }
     },
     "userName": "Brett"

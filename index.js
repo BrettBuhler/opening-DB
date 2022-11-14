@@ -13,13 +13,17 @@ app.get('/api/users', (req, res, next) => {
 
 app.put('api/users/:userName', (req, res, next) => {
     const body = req.body
-    const openings = {
-        name: body.name,
-        relations: body.relations
+    const user = {
+        openings: {
+            
+        }
     }
-    User.findOneAndUpdate({userName: req.params.userName}, openings, {new: false}).then(updatedOpenings => {
-        res.json(updatedOpenings)
-    }).catch(error => next(error))
+    console.log(openings)
+    User.findOneAndUpdate(req.params.userName, openings, {new: true})
+        .then(updatedOpening => {
+            res.json(updatedOpening)
+        })
+        .catch(error => next(error))
 })
 
 app.get('/api/users/:userName', (req, res, next) => {
@@ -32,6 +36,7 @@ app.get('/api/users/:userName', (req, res, next) => {
     })
     .catch(error => next(error))
 })
+
 
 app.post('/api/users', (req, res) => {
     const body = req.body
