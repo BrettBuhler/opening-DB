@@ -3,7 +3,22 @@ const express = require('express')
 const User = require('./models/users')
 const app = express()
 const mongoose = require('mongoose')
+const { response } = require('express')
+const morgan = require('morgan')
 app.use(express.json())
+
+app.use(morgan((tokens, req, res) => {
+    return [
+        tokens.method(req,res),
+        tokens.url(req, res),
+        tokens.status(req, res),
+        tokens.res(req, res, 'content-length'),
+        '-',
+        tokens['response-time'](req, res),
+        'ms',
+        JSON.stringify(req.body)
+    ].join(' ')
+}))
 
 app.get('/api/users', (req, res, next) => {
     User.find({}).then(users => {
@@ -11,20 +26,13 @@ app.get('/api/users', (req, res, next) => {
     })
 })
 
-app.put('api/users/:userName', (req, res, next) => {
-    const body = req.body
-    const user = {
-        openings: {
-            
-        }
-    }
-    console.log(openings)
-    User.findOneAndUpdate(req.params.userName, openings, {new: true})
-        .then(updatedOpening => {
-            res.json(updatedOpening)
+app.delete('/api/users/:userName', (req, res) => {
+    User.findOneAndDelete({userName: req.params.userName})
+        .then(user => {
+            res.json(user)
         })
-        .catch(error => next(error))
 })
+
 
 app.get('/api/users/:userName', (req, res, next) => {
     User.findOne({userName: req.params.userName}).then(user => {
